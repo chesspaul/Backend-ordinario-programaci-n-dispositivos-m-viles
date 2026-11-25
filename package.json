@@ -1,0 +1,22 @@
+{
+  "name": "patitas-backend",
+  "version": "1.0.0",
+  "description": "API REST de Patitas en la calle (Express + MySQL)",
+  "private": true,
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "test": "node --test --test-concurrency=1 test/*.test.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.10",
+    "express": "^4.22.3",
+    "multer": "^2.5.0",
+    "mysql2": "^3.24.6"
+  }
+}

@@ -1,0 +1,309 @@
+{
+  "info": {
+    "name": "Patitas en la calle API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:3000"
+    }
+  ],
+  "item": [
+    {
+      "name": "Salud",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/salud",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "salud"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Listar reportes",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/reportes?limit=20&offset=0",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "reportes"
+          ],
+          "query": [
+            {
+              "key": "limit",
+              "value": "20"
+            },
+            {
+              "key": "offset",
+              "value": "0"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Filtrar urgentes sin atender",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/reportes?urgencia=3&atendido=false",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "reportes"
+          ],
+          "query": [
+            {
+              "key": "urgencia",
+              "value": "3"
+            },
+            {
+              "key": "atendido",
+              "value": "false"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Detalle de reporte",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/reportes/1",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "reportes",
+            "1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Crear reporte",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"especie\": \"Perro\",\n  \"estado\": \"Herido\",\n  \"urgencia\": 3,\n  \"descripcion\": \"Cojea de una pata\",\n  \"cantidad_animales\": 2,\n  \"tiene_collar\": false,\n  \"fecha_avistamiento\": \"2026-11-20\",\n  \"latitud\": 19.43,\n  \"longitud\": -99.13\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/reportes",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "reportes"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Marcar atendido",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"atendido\": true\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/reportes/1",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "reportes",
+            "1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Borrar reporte",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/reportes/1",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "reportes",
+            "1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Listar albergues",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/albergues",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "albergues"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Crear albergue",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nombre\": \"Refugio Nuevo\",\n  \"telefono\": \"5550001111\",\n  \"zona\": \"Tlalpan\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/albergues",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "albergues"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Listar seguimientos",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/reportes/1/seguimientos",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "reportes",
+            "1",
+            "seguimientos"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Crear seguimiento",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nota\": \"Ya fue valorado\",\n  \"estado_nuevo\": \"Sano\",\n  \"requiere_traslado\": false\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/reportes/1/seguimientos",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "reportes",
+            "1",
+            "seguimientos"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Estadísticas",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/estadisticas",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "estadisticas"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Subir foto",
+      "request": {
+        "method": "POST",
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "foto",
+              "type": "file",
+              "src": ""
+            }
+          ]
+        },
+        "url": {
+          "raw": "{{base_url}}/api/reportes/1/archivos",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "reportes",
+            "1",
+            "archivos"
+          ]
+        }
+      }
+    }
+  ]
+}
